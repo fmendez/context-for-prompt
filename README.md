@@ -45,3 +45,5 @@ The search will ignore hidden files by default and anything contained in the `.g
 ```sh
 context-for-prompt /path/to/directory -e=md,lock 
 ``` 
+
+Note: This crate was inspired by https://github.com/simonw/files-to-prompt
