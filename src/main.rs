@@ -2,26 +2,48 @@ use std::path::Path;
 
 use clap::Parser;
 use clipboard::{ClipboardContext, ClipboardProvider};
-use walkdir::WalkDir;
+use ignore::WalkBuilder;
 
 #[derive(Parser, Debug)]
 #[command(version, about)]
 struct Args {
     root: String,
+    #[clap(short, long, default_value = "")]
+    extensions_to_ignore: Vec<String>,
     #[clap(short, long, default_value = "false")]
     debug: bool,
+
+    #[clap(long, default_value = "true")]
+    hidden: bool,
 }
 
 fn main() {
     let args = Args::parse();
     let root = Path::new(&args.root);
     let mut files = vec![];
-    for entry in WalkDir::new(root) {
-        let entry = entry.unwrap();
-        if entry.file_type().is_file() {
-            files.push(entry.path().to_path_buf());
+
+    for result in WalkBuilder::new(root).hidden(args.hidden).build() {
+        let entry = match result {
+            Ok(e) => e,
+            Err(err) => {
+                eprintln!("ERROR: {}", err);
+                continue;
+            }
+        };
+
+        // Check if the file should be ignored based on its extension
+        if entry.file_type().map_or(false, |ft| ft.is_file())
+            && !args.extensions_to_ignore.iter().any(|ext| {
+                entry
+                    .path()
+                    .extension()
+                    .map_or(false, |e| e.to_str() == Some(ext))
+            })
+        {
+            files.push(entry.into_path());
         }
     }
+
     let mut clipboard_content = String::new();
     for file in files {
         let file_display = format!("file: {}", file.display());

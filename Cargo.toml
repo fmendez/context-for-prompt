@@ -2,10 +2,13 @@
 name = "context-for-prompt"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+authors = ["Fernando Mendez"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 clap = { version = "*", features = ["derive"] }
-walkdir = "*"
-clipboard = "*"
+walkdir = "2.5.0"
+clipboard = "0.5.0"
+ignore = "0.4.22"
