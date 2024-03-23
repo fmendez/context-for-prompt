@@ -64,7 +64,7 @@ header content
 ----------- content end -------------
 file: ./src/page.tsx
 ----------- content start -------------
-page conent
+page content
 ----------- content end -------------
 ```
 
