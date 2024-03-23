@@ -48,7 +48,7 @@ For a directory structure that looks like this:
 src/
 ├── page.tsx
 ├── header.txt
-└── mics/
+└── misc/
     └── util.ts
 ```
 Running `context-for-prompt .` will copy the content of `page.tsx`, `header.txt`, and `util.ts` to the clipboard in the following format:
