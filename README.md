@@ -40,7 +40,7 @@ file content
 
 This content can then be used as context for LLMS prompts.
 
-The search will ignore hidden files by default and anything contained in the `.gitignore` file. You can use the `--hidden` flag to include hidden files and directories. You can use the `--extensions-to-ignore` flag to ignore files with certain extensions. For instance, if you want to ignore `.md` files, you can use the following command:
+The search will ignore hidden files by default and anything contained in the `.gitignore` file. You can use the `--hidden` flag to include hidden files and directories. You can use the `--extensions-to-ignore` flag to ignore files with certain extensions. For instance, if you want to ignore `.md` and `.lock` files, you can use the following command:
 
 ```sh
 context-for-prompt /path/to/directory -e=md,lock 
