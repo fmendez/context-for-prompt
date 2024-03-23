@@ -4,6 +4,11 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT"
 authors = ["Fernando Mendez"]
+description = "Creates a context made of all the files and their content."
+homepage = "https://github.com/fmendez/context-for-prompt"
+readme = "README.md"
+repository = "https://github.com/fmendez/context-for-prompt"
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
