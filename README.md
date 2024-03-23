@@ -40,6 +40,37 @@ file content
 
 This content can then be used as context for LLMS prompts.
 
+## Example
+
+For a directory structure that looks like this:
+
+```
+src/
+├── page.tsx
+├── header.txt
+└── mics/
+    └── util.ts
+
+Running `context-for-prompt .` will copy the content of `page.tsx`, `header.txt`, and `util.ts` to the clipboard in the following format:
+
+```
+file: ./src/util.ts
+----------- content start -------------
+util content
+----------- content end -------------
+file: ./src/header.tsx
+----------- content start -------------
+header content
+----------- content end -------------
+file: ./src/page.tsx
+----------- content start -------------
+page conent
+----------- content end -------------
+```
+
+
+
+
 The search will ignore hidden files by default and anything contained in the `.gitignore` file. You can use the `--hidden` flag to include hidden files and directories. You can use the `--extensions-to-ignore` flag to ignore files with certain extensions. For instance, if you want to ignore `.md` and `.lock` files, you can use the following command:
 
 ```sh
