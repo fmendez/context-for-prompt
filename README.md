@@ -54,7 +54,7 @@ src/
 Running `context-for-prompt .` will copy the content of `page.tsx`, `header.txt`, and `util.ts` to the clipboard in the following format:
 
 ```
-file: ./src/util.ts
+file: ./src/misc/util.ts
 ----------- content start -------------
 util content
 ----------- content end -------------
